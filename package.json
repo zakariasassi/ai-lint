@@ -1,0 +1,46 @@
+{
+  "name": "aicheck",
+  "version": "0.1.0",
+  "description": "AI-powered CLI for code review, fix suggestions, and security scanning.",
+  "license": "MIT",
+  "author": "",
+  "type": "commonjs",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "aicheck": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./plugin-api": {
+      "types": "./dist/plugin-api.d.ts",
+      "default": "./dist/plugin-api.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

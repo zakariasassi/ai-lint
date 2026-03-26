@@ -1,0 +1,4 @@
+node_modules
+dist
+.aicheck/cache.json
+.DS_Store

@@ -1,0 +1,36 @@
+import { AICheckConfig } from "../types";
+
+export const DEFAULT_CONFIG: AICheckConfig = {
+  provider: "openai",
+  model: "gpt-5",
+  apiKeyEnvVar: "OPENAI_API_KEY",
+  apiBaseUrl: "https://api.openai.com/v1",
+  rulesOnlyModeOnFailure: true,
+  maxFileSizeKB: 256,
+  chunkSizeChars: 7000,
+  rateLimitRpm: 60,
+  retry: {
+    attempts: 3,
+    delayMs: 800,
+    timeoutMs: 30_000,
+  },
+  cache: {
+    enabled: true,
+    ttlHours: 24,
+    path: ".aicheck/cache.json",
+  },
+  rules: {
+    codeReview: true,
+    securityScan: true,
+    namingConvention: "strict",
+    performanceHints: true,
+  },
+  triggers: {
+    onSave: false,
+    onCommit: true,
+  },
+  exclude: ["node_modules", "dist", "build", ".git"],
+  include: ["src"],
+  languages: ["javascript", "typescript", "python"],
+  plugins: [],
+};
